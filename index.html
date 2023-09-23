@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPFS Upload Dashboard with QR Code Generation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="loader">
+        <div class="ring">Loading<span></span></div>
+    </div>
+    <div class="container">
+        <h1 class="fade-in">IPFS Upload Dashboard</h1>
+        <input type="file" id="fileInput">
+        <button onclick="uploadFile()" class="fade-in">Upload</button>
+        <div class="uploading-message">Uploading...</div>
+        <div id="result" class="fade-in"></div>
+        <div class="loading" id="loading"></div>
+        <div id="qrcode" class="fade-in"></div>
+    </div>
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+        // Hide the loader when the page is fully loaded
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loader');
+            loader.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
