@@ -1,30 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>NFT Conversion Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPFS Upload Dashboard with QR Code Generation</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>NFT Conversion Dashboard</h1>
-    <form enctype="multipart/form-data" id="upload-form">
-        <input type="file" id="file-input" name="file" accept=".png, .jpg, .jpeg, .glb">
-        <input type="text" id="nft-name" placeholder="NFT Name">
-        <input type="text" id="nft-description" placeholder="NFT Description">
-        <input type="text" id="wallet-address" placeholder="Wallet Address">
-        <button type="button" id="convert-button">Convert to NFT</button>
-    </form>
-    
-    <div id="response" class="response">
-        <pre id="response-text"></pre>
+    <div class="loader">
+        <div class="ring">Loading<span></span></div>
     </div>
-    
-    <!-- Display various fields in boxes -->
-    <div id="chain-box" class="box"></div>
-    <div id="contract-address-box" class="box"></div>
-    <div id="transaction-hash-box" class="box"></div>
-    <div id="transaction-external-url-box" class="box"></div>
-    <div id="mint-to-address-box" class="box"></div>
-    
-    <script src="script.js"></script>
+    <div class="container">
+        <h1 class="fade-in">IPFS Upload Dashboard</h1>
+        <input type="file" id="fileInput">
+        <button onclick="uploadFile()" class="fade-in">Upload</button>
+        <div class="uploading-message">Uploading...</div>
+        <div id="result" class="fade-in"></div>
+        <div class="loading" id="loading"></div>
+        <div id="qrcode" class="fade-in"></div>
+    </div>
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+        // Hide the loader when the page is fully loaded
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loader');
+            loader.style.display = 'none';
+        });
+    </script>
 </body>
 </html>
